@@ -1,5 +1,5 @@
 {
     "build": {
-      "root": "server"
+      "root": "Server"
     }
   }
