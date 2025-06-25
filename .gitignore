@@ -1,0 +1,17 @@
+# Python cache and environment
+__pycache__/
+*.pyc
+.env
+
+# Node modules (if any in future)
+node_modules/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Firebase credentials (if you want to keep them private)
+sharebite-c04fc-firebase-adminsdk-sgiia-f93d855dcb.json
+
+# VSCode settings
+.vscode/ 

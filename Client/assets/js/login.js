@@ -1,6 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -31,8 +31,24 @@ submit?.addEventListener("click", async function(event) {
         const userCredential = await signInWithEmailAndPassword(auth, username, password);
         // Successfully signed in
         const user = userCredential.user;
-        alert("Successfully logged in!");
-        window.location.href = "dashboard.html";
+        // Fetch user role from Firestore
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("userId", "==", user.uid));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const userData = querySnapshot.docs[0].data();
+            const roles = userData.roles || [];
+            if (roles.includes('receiver')) {
+                window.location.href = "receive.html";
+            } else if (roles.includes('donor')) {
+                window.location.href = "donate.html";
+            } else {
+                window.location.href = "dashboard.html";
+            }
+        } else {
+            // Fallback if user data is not found
+            window.location.href = "dashboard.html";
+        }
     } catch (error) {
         const errorMessage = error.message;
         alert(`Error: ${errorMessage}`);
@@ -52,6 +68,10 @@ signup?.addEventListener("click", async function(event) {
     const place = document.getElementById('place').value;
     const district = document.getElementById('district').value;
     const state = document.getElementById('state').value;
+    // Get selected roles
+    const roles = [];
+    if (document.getElementById('role-donor').checked) roles.push('donor');
+    if (document.getElementById('role-receiver').checked) roles.push('receiver');
     // const password = document.getElementById('password').value;
 
     try {
@@ -71,6 +91,7 @@ signup?.addEventListener("click", async function(event) {
             place: place,
             district: district,
             state: state,
+            roles: roles,
             last_login: Date.now(),
             userId: user.uid
         };

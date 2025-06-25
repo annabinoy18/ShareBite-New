@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Donations - ShareBite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/form-styles.css">
+    <link rel="stylesheet" href="assets/css/receive-styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Available Donations</h1>
+            <p>Here are the current food donations available for pickup.</p>
+        </header>
+
+        <main class="layout-container">
+            <div id="donations-list-container">
+                <h2>Donations List</h2>
+                <div class="filter-container">
+                    <input type="text" id="search-bar" placeholder="Search by food name...">
+                    <select id="category-filter">
+                        <option value="all">All Categories</option>
+                        <option value="veg">Veg</option>
+                        <option value="non-veg">Non-Veg</option>
+                    </select>
+                </div>
+                <div id="donations-list">
+                    <!-- Donation items will be dynamically loaded here -->
+                </div>
+            </div>
+
+            <div id="map-container">
+                <h2>Donations Map</h2>
+                <div id="map"></div>
+            </div>
+        </main>
+    </div>
+
+    <div id="claim-modal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-modal" class="close">&times;</span>
+            <h3>Claim Donation</h3>
+            <form id="claim-form">
+                <label for="receiver-name">Your Name</label>
+                <input type="text" id="receiver-name" name="receiver-name" required>
+                <label for="receiver-email">Your Email</label>
+                <input type="email" id="receiver-email" name="receiver-email" required>
+                <label for="receiver-phone">Your Phone</label>
+                <input type="text" id="receiver-phone" name="receiver-phone" required>
+                <input type="hidden" id="claim-donation-id" name="donation-id">
+                <button type="submit">Submit Claim</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js" type="module"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js" type="module"></script>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script type="module" src="assets/js/receive.js" defer></script>
+</body>
+</html>

@@ -17,14 +17,17 @@ body {
 }
 
 /* Container for the form */
-.container {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for a subtle 3D effect */
+.form-container {
     width: 100%;
-    max-width: 500px; /* Responsive max width */
-    text-align: center;
+    max-width: 700px;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Heading style */
@@ -37,6 +40,7 @@ h1 {
 
 /* Form elements */
 form {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -81,4 +85,11 @@ button {
 
 button:hover {
     background-color: #001f4d; /* Slightly darker on hover */
+}
+
+@media (max-width: 800px) {
+    .form-container {
+        max-width: 98vw;
+        padding: 1.5rem 0.5rem;
+    }
 }

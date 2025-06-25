@@ -1,0 +1,153 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6; /* A softer, off-white background */
+    color: #333; /* Darker text for better readability */
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Style for the header and navigation */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    font-family: 'Lobster', cursive;
+    color: #005a78; /* A slightly softer, professional blue */
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    color: #005a78;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #ff6b6b; /* A contrasting accent color for hover */
+}
+
+/* Each section styling */
+section {
+    padding: 4rem 5%;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: center;
+}
+
+section:nth-of-type(odd) {
+    background-color: #ffffff;
+}
+
+section:nth-of-type(even) {
+    background-color: #f4f7f6;
+}
+
+/* Heading style within sections */
+section h2 {
+    font-family: 'Lobster', cursive;
+    font-size: 2.8rem;
+    color: #005a78;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* Underline effect for section headings */
+section h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #ff6b6b;
+    margin: 0.5rem auto 0;
+}
+
+/* Icons style */
+.icon {
+    display: none; /* Icons are removed for a cleaner look, can be re-added if desired */
+}
+
+/* Paragraph styling within sections */
+section p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+    color: #555;
+}
+
+#home img {
+    display: block; /* Ensure it's treated as a block element */
+    max-width: 100%; /* Responsive image width */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center image horizontally */
+}
+
+/* Image styling in the About section */
+#about img {
+    display: block; /* Ensure it's treated as a block element */
+    max-width: 100%; /* Responsive image width */
+    height: auto;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    margin: 20px auto; /* Center image horizontally */
+}
+
+/* Buttons style */
+button {
+    background-color: #005a78;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0.5rem;
+}
+
+button:hover {
+    background-color: #00435a;
+    transform: translateY(-2px);
+}
+
+/* Specific style for Join the Movement section */
+#join {
+    padding-bottom: 5rem;
+}
+
+#join button {
+    margin: 0 10px;
+}

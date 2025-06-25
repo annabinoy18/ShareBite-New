@@ -1,0 +1,293 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #003366; /* Dark blue text */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Full viewport height */
+    text-align: center;
+}
+
+/* Container for the receive page */
+.container {
+    width: 95%;
+    max-width: 1600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Header styling */
+header h1 {
+    font-family: 'Lobster', cursive;
+    color: #005a78;
+    font-size: 3rem;
+    text-align: center;
+}
+
+header p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Main layout container for side-by-side view */
+.layout-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to new line */
+    gap: 20px;
+}
+
+/* Container for the donations list */
+#donations-list-container {
+    flex: 2; /* Takes 2 parts of the space, making it wider */
+    min-width: 400px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The list itself, making it scrollable */
+#donations-list {
+    height: calc(70vh + 65px); /* Match height of the list + heading */
+    overflow-y: auto; /* Add a scrollbar if content overflows */
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Container for the map */
+#map-container {
+    flex: 1; /* Takes 1 part of the space */
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#map-container h2 {
+    margin-top: 0;
+}
+
+/* The map element */
+#map {
+    width: 100%;
+    height: 100%; /* Map fills the container height */
+    border-radius: 8px;
+}
+
+/* Styling for individual donation cards */
+.donor-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.claim-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #005a78; /* Changed back to blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.claim-btn:hover {
+    background-color: #00435a; /* Darker blue for hover */
+}
+
+/* Styles for modal - assuming they exist in another file but adding for completeness */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+/* Instructional text */
+p {
+    font-size: 20px;
+    color: #003366;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* Button style */
+button {
+    background-color: #003366; /* Dark blue background */
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #001f4d; /* Slightly darker on hover */
+}
+
+/* Donor card styles */
+.form-container {
+    max-width: 900px;
+    width: 100%;
+    margin: 2rem auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    padding: 2.5rem 2rem;
+}
+
+#donor-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 24px;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+/* Donor card heading */
+.donor-card h2 {
+    font-size: 24px;
+    color: #003366;
+    margin-bottom: 10px;
+}
+
+/* Donor card paragraphs */
+.donor-card p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1rem 0.5rem;
+    }
+    #donor-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.close {
+    color: #aaa;
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+.close:hover,
+.close:focus {
+    color: #003366;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#claim-form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    color: #003366;
+    font-weight: 500;
+}
+#claim-form input[type="text"],
+#claim-form input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #003366;
+    font-size: 16px;
+    margin-bottom: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+}
+#claim-form button[type="submit"] {
+    width: 100%;
+    margin-top: 1.2rem;
+    background-color: #003366;
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#claim-form button[type="submit"]:hover {
+    background-color: #001f4d;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #donations-list-container,
+    #map-container {
+        flex: 1 1 100%; /* Each takes full width on small screens */
+    }
+
+    #donations-list {
+        max-height: 50vh; /* Adjust height for smaller screens */
+    }
+
+    #map {
+        height: 60vh;
+    }
+}
+
+/* New styles for the filter container */
+.filter-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#search-bar, #category-filter {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+#search-bar {
+    flex-grow: 1; /* Search bar takes up more space */
+}
+
+#category-filter {
+    flex-shrink: 0; /* Prevents the dropdown from shrinking */
+}
