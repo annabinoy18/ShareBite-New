@@ -59,7 +59,7 @@ document.getElementById('donationForm')?.addEventListener('submit', async functi
 
     try {
         // Send POST request to FastAPI endpoint
-        const response = await fetch('http://localhost:8000/donation', {
+        const response = await fetch('https://sharebite-2kfi.onrender.com/donation', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

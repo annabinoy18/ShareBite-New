@@ -48,7 +48,7 @@ async function onLocationSuccess(position) {
 
     try {
         // 2. Fetch all unclaimed donations from the backend endpoint.
-        const response = await fetch('http://localhost:8000/donations');
+        const response = await fetch('https://sharebite-2kfi.onrender.com/donations');
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
