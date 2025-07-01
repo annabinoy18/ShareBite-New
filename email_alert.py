@@ -14,6 +14,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from geopy.geocoders import Nominatim
 from geopy.exc import GeocoderTimedOut, GeocoderUnavailable
+import json
 
 # Load environment variables
 load_dotenv()
@@ -25,8 +26,18 @@ GMAIL_APP_PASSWORD = os.getenv("GMAIL_APP_PASSWORD")
 # Initialize Firebase Admin SDK
 # You'll need to download your Firebase service account key
 # Go to Firebase Console > Project Settings > Service Accounts > Generate New Private Key
-service_account_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
-cred = credentials.Certificate(service_account_path)
+
+firebase_credentials_json = os.getenv("FIREBASE_CREDENTIALS_JSON")
+if firebase_credentials_json:
+    cred = credentials.Certificate(json.loads(firebase_credentials_json))
+else:
+    # Fallback to file path if JSON not provided
+    service_account_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+    if service_account_path:
+        cred = credentials.Certificate(service_account_path)
+    else:
+        # Default to the local file (for local dev only)
+        cred = credentials.Certificate("sharebite-c04fc-firebase-adminsdk-sgiia-f93d855dcb.json")
 
 # Only initialize if not already initialized
 if not firebase_admin._apps:
