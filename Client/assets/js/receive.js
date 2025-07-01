@@ -212,7 +212,7 @@ function initializeClaimModal() {
         const receiverPhone = document.getElementById('receiver-phone').value;
 
         try {
-            const response = await fetch('http://127.0.0.1:8000/claim_donation', {
+            const response = await fetch('https://sharebite-2kfi.onrender.com/claim_donation', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
